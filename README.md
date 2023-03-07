@@ -2,7 +2,7 @@
 # Employee Tracker
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  [Walkthrough Video]()
+  [Walkthrough Video](https://watch.screencastify.com/v/NgsGrpeHc0P5pnQrD98Q)
 
  ## Table of Contents 📑
 
