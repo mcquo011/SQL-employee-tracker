@@ -3,13 +3,13 @@ const connection = require("./db/server");
 const consoleTable = require("console.table");
 
 
-init();
 
-// initial function at NPM start
+
+
 function init() {
   promptUser();
 }
-// main prompt function
+
 function promptUser() {
   inquirer
     .prompt([
@@ -209,7 +209,7 @@ function addEmployee() {
             },
             (err, res) => {
               if (err) throw err;
-              console.log(`\n${res.affectedRows} employee added!\n`);
+              console.log(`\n Employee added!\n`);
               promptUser();
             }
           );
@@ -220,6 +220,45 @@ function addEmployee() {
 
 
 function updateEmployeeRole() {
-  
+  connection.query("SELECT * FROM employee", (err, employees) => {
+    if (err) throw err;
+    connection.query("SELECT * FROM roles", (err, roles) => {
+      if (err) throw err;
+      inquirer
+        .prompt([
+          {
+            type: "list",
+            name: "employee",
+            message: "Which employee would you like to update?",
+            choices: employees.map((employee) => ({
+              name: `${employee.first_name} ${employee.last_name}`,
+              value: employee.id,
+            })),
+          },
+          {
+            type: "list",
+            name: "role",
+            message: "What is the employee's new role?",
+            choices: roles.map((role) => ({
+              name: role.title,
+              value: role.id,
+            })),
+          },
+        ])
+        .then((answer) => {
+          connection.query(
+            "UPDATE employee SET role_id = ? WHERE id = ?",
+            [answer.role, answer.employee],
+            (err) => {
+              if (err) throw err;
+              console.log("Employee role updated successfully!");
+              promptUser();
+            }
+          );
+        });
+    });
+  });
 }
 
+
+init();
