@@ -61,7 +61,7 @@ Future development could including adding the option to update managers, view em
 
   ![Alt text](./images/Screen%20Shot%202023-03-07%20at%2010.55.14%20AM.png?raw=true "screenshot of update employees")
 
-  Watch [walkthrough video](https://github.com/mcquo011/SQL-employee-tracker) to see the other prompts
+  Watch [walkthrough video](https://watch.screencastify.com/v/NgsGrpeHc0P5pnQrD98Q) to see the other prompts
 
 
   ## Contributers 
