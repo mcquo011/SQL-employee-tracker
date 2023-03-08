@@ -3,13 +3,6 @@ const connection = require("./db/server");
 const consoleTable = require("console.table");
 
 
-
-
-
-function init() {
-  promptUser();
-}
-
 function promptUser() {
   inquirer
     .prompt([
@@ -261,4 +254,4 @@ function updateEmployeeRole() {
 }
 
 
-init();
+promptUser();
